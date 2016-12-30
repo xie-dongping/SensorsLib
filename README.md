@@ -1,10 +1,10 @@
-# Goal of The Project 
+# Goal of The Project
 
 * a open source library for detailed mechantronic sensors
 
 # Compatibility Goal
 
-Compiliance for Modelica 3.3 with MSL 3.2.1
+Compiliance for Modelica 3.3 with MSL 3.2.2
 
 # TODOs
 
