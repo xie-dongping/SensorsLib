@@ -1,6 +1,6 @@
 within SensorsLib.Generic.Errors;
 
-encapsulated model CalibrationError
+model CalibrationError
   "Calculate calibration error of the sensor"
   import SensorsLib.Generic.Errors.Functions.pureRandom;
   parameter Real gain;

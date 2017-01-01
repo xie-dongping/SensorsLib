@@ -1,6 +1,6 @@
 within SensorsLib.Generic.Errors;
 
-encapsulated model HysteresisError
+model HysteresisError
   "Nonlinearity calibration error of the sensor"
 
   import SensorsLib.Generic.Errors.Functions.pureRandom;

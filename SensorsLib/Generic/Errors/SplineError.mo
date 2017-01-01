@@ -2,28 +2,22 @@ within SensorsLib.Generic.Errors;
 
 encapsulated model SplineError
 
-  import SensorsLib.Generic.Errors.Functions.splineCoefficients;
+  constant Integer numberOfCoeffients = 4;
 
   parameter Real gain;
   parameter Real inputMax;
   parameter Real inputMin;
+  parameter Integer numberOfPoints;
 
   input Real u;
-  input Real x[:];
-  input Real y[:];
+  input Real coefficients[numberOfPoints-1, numberOfCoeffients];
+  input Real y[numberOfPoints];
   output Real errorValue "Interpolated error";
 
 protected
-  Integer numberOfPoints;
   Integer rangeNumber;
 
 equation
-  numberOfPoints = size(y);
-
-  for i in 1:(numberOfPoints-1) loop
-    coefficients[i, :] = splineCoefficients(x[i], y[i], x[i+1], y[i+1]);
-  end for;
-
   if u < inputMin then
     rangeNumber = 0;
     errorValue = y[1];
