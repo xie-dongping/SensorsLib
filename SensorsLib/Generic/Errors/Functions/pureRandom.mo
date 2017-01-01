@@ -1,4 +1,4 @@
-within SensorsLib.Generic.Errors;
+within SensorsLib.Generic.Errors.Functions;
 
 function pureRandom "Generate a random number in a pure fashion"
   extends Modelica.Icons.Function;

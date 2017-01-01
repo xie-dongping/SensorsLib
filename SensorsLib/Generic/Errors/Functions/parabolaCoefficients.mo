@@ -1,4 +1,4 @@
-within SensorsLib.Generic.Errors;
+within SensorsLib.Generic.Errors.Functions;
 
 function parabolaCoefficients
   "Obtain the parabola coefficients with a fixed boundary condition"

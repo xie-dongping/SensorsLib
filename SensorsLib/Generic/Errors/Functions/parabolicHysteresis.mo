@@ -1,4 +1,4 @@
-within SensorsLib.Generic.Errors;
+within SensorsLib.Generic.Errors.Functions;
 
 function parabolicHysteresis
   extends Modelica.Icons.Function;

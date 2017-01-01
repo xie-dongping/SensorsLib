@@ -1,4 +1,4 @@
-within SensorsLib.Generic.Errors;
+within SensorsLib.Generic.Errors.Functions;
 
 function splineCoefficients
   "Obtain the cubic spline coefficients with zero-value boundary differetial"
