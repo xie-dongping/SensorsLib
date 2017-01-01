@@ -16,6 +16,6 @@ protected
   Real generatedRandomValue;
 algorithm
   state1024 := initialState(localSeed, globalSeed);
-  (generatedRandomValue, state1024):= random(state1024);
+  (generatedRandomValue, state1024) := random(state1024);
   randomValue := minValue + (maxValue - minValue) * generatedRandomValue;
 end pureRandom;

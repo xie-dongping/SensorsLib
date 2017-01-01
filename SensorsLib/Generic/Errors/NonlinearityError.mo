@@ -4,7 +4,7 @@ encapsulated model NonlinearityError
   "Nonlinearity calibration error of the sensor"
 
   import SensorsLib.Generic.Errors.Functions.pureRandom;
-  import SensorsLib.Generic.Errors.Functions.splineCoefficients;
+  import SensorsLib.Generic.Errors.Functions.SplineError;
 
   parameter Real gain;
   parameter Real inputMax;
@@ -17,14 +17,13 @@ encapsulated model NonlinearityError
   input Real u;
   output Real errorValue "Nonlinearity error value in operating range";
 
+  SplineError splineError(gain=gain, inputMax=inputMax, inputMin=inputMin);
 
 protected
   constant Integer numberOfCoeffients = 4;
   Real x[numberOfPoints] = linspace(inputMin, inputMax, numberOfPoints);
   Real y[numberOfPoints];
   Real coefficients[numberOfPoints-1, numberOfCoeffients];
-  Integer rangeNumber;
-
 
 equation
 
@@ -32,26 +31,10 @@ equation
     y[i] = pureRandom(localSeed + i, globalSeed, -errorMax, errorMax);
   end for;
 
-  for i in 1:(numberOfPoints-1) loop
-    coefficients[i, :] = splineCoefficients(x[i], y[i], x[i+1], y[i+1]);
-  end for;
+  splineError.x = x;
+  splineError.y = y;
+  splineError.u = u;
 
-  if u < inputMin then
-    rangeNumber = 0;
-    errorValue = y[1];
-  elseif u >= inputMax then
-    rangeNumber = numberOfPoints;
-    errorValue = y[end];
-  else
-    rangeNumber = max(min(1 + integer((u - inputMin) /
-                                      (inputMax - inputMin) *
-                                      (numberOfPoints - 1)),
-                          (numberOfPoints - 1)),
-                      1);
-    errorValue = coefficients[rangeNumber, 1] +
-                 coefficients[rangeNumber, 2] * u +
-                 coefficients[rangeNumber, 3] * u^2 +
-                 coefficients[rangeNumber, 4] * u^3;
-  end if;
+  errorValue = splineError.errorValue;
 
 end NonlinearityError;
