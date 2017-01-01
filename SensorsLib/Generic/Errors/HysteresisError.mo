@@ -3,9 +3,9 @@ within SensorsLib.Generic.Errors;
 encapsulated model HysteresisError
   "Nonlinearity calibration error of the sensor"
 
-  import SensorsLib.Generic.Errors.pureRandom;
-  import SensorsLib.Generic.Errors.parabolaCoefficients;
-  import SensorsLib.Generic.Errors.parabolicHysteresis;
+  import SensorsLib.Generic.Errors.Functions.pureRandom;
+  import SensorsLib.Generic.Errors.Functions.parabolaCoefficients;
+  import SensorsLib.Generic.Errors.Functions.parabolicHysteresis;
   import Modelica.SIunits.Time;
 
   parameter Real gain;

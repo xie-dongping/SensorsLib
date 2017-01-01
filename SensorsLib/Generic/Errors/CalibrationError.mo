@@ -2,7 +2,7 @@ within SensorsLib.Generic.Errors;
 
 encapsulated model CalibrationError
   "Calculate calibration error of the sensor"
-  import SensorsLib.Generic.Errors.pureRandom;
+  import SensorsLib.Generic.Errors.Functions.pureRandom;
   parameter Real gain;
   parameter Real inputMax;
   parameter Real inputMin;

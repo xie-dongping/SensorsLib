@@ -3,8 +3,8 @@ within SensorsLib.Generic.Errors;
 encapsulated model NonlinearityError
   "Nonlinearity calibration error of the sensor"
 
-  import SensorsLib.Generic.Errors.pureRandom;
-  import SensorsLib.Generic.Errors.splineCoefficients;
+  import SensorsLib.Generic.Errors.Functions.pureRandom;
+  import SensorsLib.Generic.Errors.Functions.splineCoefficients;
 
   parameter Real gain;
   parameter Real inputMax;
