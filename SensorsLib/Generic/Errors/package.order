@@ -1,5 +1,9 @@
-splineCoefficients
-pureRandom
+parabolicHysteresis
 CalibrationError
+parabolaCoefficients
+splineCoefficients
 NonlinearityError
 TestNolinearityError
+HysteresisError
+pureRandom
+TestHysteresisError
