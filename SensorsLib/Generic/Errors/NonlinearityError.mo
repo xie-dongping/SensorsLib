@@ -28,12 +28,12 @@ protected
   Real coefficients[numberOfPoints-1, numberOfCoeffients];
 
 equation
-  for i in 1:(numberOfPoints-1) loop
-    coefficients[i, :] = splineCoefficients(x[i], y[i], x[i+1], y[i+1]);
-  end for;
-
   for i in 1:numberOfPoints loop
     y[i] = pureRandom(localSeed + i, globalSeed, -errorMax, errorMax);
+  end for;
+
+  for i in 1:(numberOfPoints-1) loop
+    coefficients[i, :] = splineCoefficients(x[i], y[i], x[i+1], y[i+1]);
   end for;
 
   splineError.u = u;

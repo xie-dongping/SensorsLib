@@ -1,7 +1,9 @@
 Functions
+LorenzSystem
 SplineError
 CalibrationError
 NonlinearityError
 HysteresisError
 TestNolinearityError
 TestHysteresisError
+RepeatabilityError
