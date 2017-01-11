@@ -4,6 +4,7 @@ SplineError
 CalibrationError
 NonlinearityError
 HysteresisError
+RepeatabilityError
 TestNolinearityError
 TestHysteresisError
-RepeatabilityError
+TestRepeatabilityError

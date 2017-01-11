@@ -11,7 +11,7 @@ model RepeatabilityError
   parameter Real inputMax;
   parameter Real inputMin;
   parameter Real errorMax;
-  parameter Time timeConstant;
+  parameter Time timeConstant = 0.01;
   parameter Integer numberOfPoints = 6;
   parameter Integer localSeed = 41234;
   parameter Integer globalSeed = 3124;
@@ -25,14 +25,16 @@ protected
   Real normalizedInput;
   Real derInput;
   Real stateDT1;
-  Real xRangeInitial = lorenzSystem.stateRadius / 2; // safety factor 2
+  Real rangeInitial = lorenzSystem.stateRadius / 2; // with safety reserve
   Real zValueInitial = lorenzSystem.a + lorenzSystem.c;
 
 initial equation
-  lorenzSystem.x = pureRandom(localSeed, globalSeed, -xRangeInitial,
-                              xRangeInitial);
-  lorenzSystem.y = 0;
-  lorenzSystem.z = 0;
+  lorenzSystem.x = pureRandom(localSeed, globalSeed, -rangeInitial,
+                              rangeInitial);
+  lorenzSystem.y = pureRandom(localSeed*2, globalSeed, -rangeInitial,
+                              rangeInitial);
+  lorenzSystem.z = zValueInitial + pureRandom(localSeed*3, globalSeed,
+                                              -rangeInitial, rangeInitial);
 
 equation
   normalizedInput = (u - inputMin) / (inputMax - inputMin);
