@@ -1,6 +1,7 @@
 Functions
 LorenzSystem
 SplineError
+DeadBandError
 CalibrationError
 NonlinearityError
 HysteresisError
@@ -8,3 +9,4 @@ RepeatabilityError
 TestNolinearityError
 TestHysteresisError
 TestRepeatabilityError
+TestDeadBandError
