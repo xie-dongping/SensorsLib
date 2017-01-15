@@ -12,7 +12,7 @@ model HysteresisError
   parameter Real inputMax;
   parameter Real inputMin;
   parameter Real errorMax;
-  parameter Time timeHysteresis;
+  parameter Time timeHysteresis = 0.01;
   parameter Boolean ascendingOnTheLeft = true
     "If true, take the left curve when u is ascending";
   parameter Integer localSeed = 41234;

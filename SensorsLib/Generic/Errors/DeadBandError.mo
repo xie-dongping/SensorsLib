@@ -4,8 +4,8 @@ model DeadBandError
   "Calculate dead band error of the sensor using a polynomial"
   import SensorsLib.Generic.Errors.Functions.pureRandom;
   parameter Real gain;
-  parameter Real xDeadBandMiddle;
-  parameter Real yDeadBandMiddle;
+  parameter Real xDeadBandMiddle = 0;
+  parameter Real yDeadBandMiddle = 0;
   parameter Real deadBandLength;
 
   input Real u;

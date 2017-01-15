@@ -11,8 +11,8 @@ model CalibrationError
   parameter Integer globalSeed = 3124;
 
   Real leftError = errorMax * pureRandom(localSeed, globalSeed, -1, 1);
-  Real rightError = errorMax * pureRandom(localSeed, globalSeed, -1, 1);
-  Real normalizedPosition = (u - inputMin)/(inputMax - inputMin);
+  Real rightError = errorMax * pureRandom(2 * localSeed, globalSeed, -1, 1);
+  Real normalizedPosition = (u - inputMin) / (inputMax - inputMin);
 
   input Real u;
   output Real errorValue = leftError +
