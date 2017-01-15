@@ -5,7 +5,8 @@ model AdditiveSensorErrors
 
   import SensorsLib.Generic.Errors;
 
-  parameter Real gain(unit="1", min=0) = 1 "The scaling function from input to output";
+  parameter Real gain(unit="1", min=0) = 1
+    "The scaling function from input to output";
   parameter Real inputMax(unit="1") = 1 "Maximal sensor input";
   parameter Real inputMin(unit="1") = 0 "Minimal sensor input";
   parameter Real errorCalibration(unit="1", min=0) = 0.1
@@ -31,7 +32,8 @@ model AdditiveSensorErrors
   Errors.RepeatabilityError repeatabilityError(gain=gain, inputMax=inputMax,
                                                inputMin=inputMin,
                                                errorMax=errorRepeatability);
-  Errors.DeadBandError deadBandError(gain=gain, deadBandLength=inputDeadBand/2);
+  Errors.DeadBandError deadBandError(gain=gain,
+                                     deadBandLength=inputDeadBand/2);
 
 equation
   deadBandError.u = u;

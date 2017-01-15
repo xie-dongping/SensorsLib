@@ -1,6 +1,6 @@
 LinearSensorContinuous
 LinearSensorDiscrete
-TestLinearSensor
 AdditiveSensorErrors
 ADConversion
 Errors
+Quantitizer
