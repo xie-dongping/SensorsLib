@@ -1,7 +1,6 @@
-LinearSensor
-AdditiveSensorErrors
-Amplifiers
-ADConversion
-Noise
-Errors
+LinearSensorContinuous
+LinearSensorDiscrete
 TestLinearSensor
+AdditiveSensorErrors
+ADConversion
+Errors
